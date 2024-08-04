@@ -4,8 +4,6 @@ using FluentValidation.TestHelper;
 using Moq;
 using SalesInvoice.Application.Repositories;
 using SalesInvoice.Application.Services.Invoices.AddPayments;
-using SalesInvoice.Application.Services.Invoices.CreateInvoice;
-using SalesInvoice.Domain.Common;
 using SalesInvoice.Domain.Entities;
 using SalesInvoice.Domain;
 using SalesInvoice.Application.Common.Exceptions;
@@ -121,13 +119,11 @@ namespace SalesInvoice.Application.UnitTests.Invoices
          };
          var invoice = Invoice.Create(paymentCommand.Amount, DateTime.Now.ToString(AppConstants.DefaultDateFormat));
          invoice.Id = paymentCommand.Id;
-         //invoice.Paid_Amount = 0.0m;
-         //invoice.Status = AppConstants.InvoiceStatusPending;
 
          _invoiceRepository.Setup(repo => repo.Get(paymentCommand.Id, It.IsAny<CancellationToken>()))
                                .ReturnsAsync(invoice);
 
-         var responseDto = new InvoiceResponseDto { Id = 1234, Amount = 100.0m, Paid_Amount = 100.0m, Status = AppConstants.InvoiceStatusPaid };
+         var responseDto = new InvoiceResponseDto { Id = "1234", Amount = 100.0m, Paid_Amount = 100.0m, Status = AppConstants.InvoiceStatusPaid };
          _iMapper.Setup(m => m.Map<InvoiceResponseDto>(It.IsAny<Invoice>())).Returns(responseDto);
 
          // act
@@ -159,7 +155,7 @@ namespace SalesInvoice.Application.UnitTests.Invoices
          _invoiceRepository.Setup(repo => repo.Get(paymentCommand.Id, It.IsAny<CancellationToken>()))
                                .ReturnsAsync(invoice);
 
-         var responseDto = new InvoiceResponseDto { Id = 1234, Amount = 100.0m, Paid_Amount = 70.0m, Status = AppConstants.InvoiceStatusPending };
+         var responseDto = new InvoiceResponseDto { Id = "1234", Amount = 100.0m, Paid_Amount = 70.0m, Status = AppConstants.InvoiceStatusPending };
          _iMapper.Setup(m => m.Map<InvoiceResponseDto>(It.IsAny<Invoice>())).Returns(responseDto);
 
          // Act

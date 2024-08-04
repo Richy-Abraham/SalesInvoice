@@ -64,7 +64,7 @@ The API will be accessible at http://localhost:8080.
       * 201 Created
     ```json
     {
-      "id": 1234
+      "id": "1234"
     }
     ```
 
@@ -76,7 +76,7 @@ The API will be accessible at http://localhost:8080.
     ```json
     [
       {
-        "id": 1234,
+        "id": "1234",
         "amount": 199.99,
         "paid_amount": 0,
         "due_date": "2021-09-11",

@@ -8,7 +8,7 @@ namespace SalesInvoice.Application.Services.Invoices.Common
 {
    public sealed record InvoiceResponseDto
    {
-      public long Id { get; set; }
+      public string Id { get; set; } = string.Empty;
       public decimal Amount { get; set; }
       public decimal Paid_Amount { get; set; } = 0;
       public string Due_Date { get; set; } = string.Empty;

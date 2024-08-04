@@ -8,6 +8,6 @@ namespace SalesInvoice.Application.Services.Invoices.CreateInvoice
 {
    public sealed record CreateInvoiceResponseDto
    {
-      public long Id { get; set; }
+      public string Id { get; set; } = string.Empty;
    }
 }

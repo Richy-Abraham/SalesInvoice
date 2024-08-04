@@ -18,6 +18,7 @@ namespace SalesInvoice.Application.Services.Invoices.Common
             .ForMember(dest => dest.Due_Date, opt => opt.MapFrom(src => src.Due_Date));
          CreateMap<Invoice, CreateInvoiceResponseDto>();
          CreateMap<Invoice, InvoiceResponseDto>()
+            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id.ToString()))
             .ForMember(dest => dest.Due_Date, opt => opt.MapFrom(src => src.Due_Date.ToString(AppConstants.DefaultDateFormat)));
       }
    }

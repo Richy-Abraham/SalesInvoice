@@ -84,7 +84,7 @@ namespace SalesInvoice.Application.UnitTests.Invoices
          };
 
          var invoice = Invoice.Create(invoiceCommand.Amount, invoiceCommand.Due_Date);
-         var responseDto = new CreateInvoiceResponseDto { Id = 1234 };
+         var responseDto = new CreateInvoiceResponseDto { Id = "1234" };
 
          _iMapper.Setup(m => m.Map<CreateInvoiceResponseDto>(It.IsAny<Invoice>())).Returns(responseDto);
 
