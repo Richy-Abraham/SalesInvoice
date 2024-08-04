@@ -4,14 +4,14 @@ This project is a simple invoice management system built with ASP.NET Core. It a
 
 ## Table of Contents
 
-- [Features](##-features)
-- [Technologies Used](##-technologies-used)
-- [Getting Started](##-getting-started)
-- [Usage](##-usage)
-- [Running the Tests](##-running-the-tests)
-- [Assumptions](##-assumptions)
-- [Future Enhancements](##-future-enhancements)
-- [Contributions](##-contributions)
+- [Features](https://github.com/Richy-Abraham/SalesInvoice?tab=readme-ov-file#features)
+- [Technologies Used](https://github.com/Richy-Abraham/SalesInvoice?tab=readme-ov-file#technologies-used)
+- [Getting Started](https://github.com/Richy-Abraham/SalesInvoice?tab=readme-ov-file#getting-started)
+- [Usage](https://github.com/Richy-Abraham/SalesInvoice?tab=readme-ov-file#usage)
+- [Running the Tests](https://github.com/Richy-Abraham/SalesInvoice?tab=readme-ov-file#running-tests)
+- [Assumptions](https://github.com/Richy-Abraham/SalesInvoice?tab=readme-ov-file#assumptions)
+- [Future Enhancements](https://github.com/Richy-Abraham/SalesInvoice?tab=readme-ov-file#future-enhancements)
+- [Contributions](https://github.com/Richy-Abraham/SalesInvoice?tab=readme-ov-file#contributions)
 
 ## Features
 
