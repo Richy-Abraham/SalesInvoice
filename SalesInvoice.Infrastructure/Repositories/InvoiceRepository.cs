@@ -31,8 +31,10 @@ namespace SalesInvoice.Infrastructure.Repositories
       {
          try
          {
-            await Task.Yield();
-            _context.Invoices.UpdateRange(invoices);
+            await Task.Run(() =>
+            {
+               _context.Invoices.UpdateRange(invoices);
+            });
             return true;
          }
          catch { throw; }
