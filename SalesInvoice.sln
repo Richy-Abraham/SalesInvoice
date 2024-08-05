@@ -6,7 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CBE1F793-533C-4BE1-B268-FFDD4537CBDD}"
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
-		SalesInvoice.WebAPI\Dockerfile = SalesInvoice.WebAPI\Dockerfile
+		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesInvoice.Domain", "SalesInvoice.Domain\SalesInvoice.Domain.csproj", "{45EB16E6-8070-4A8D-B572-BFB3BCB1B2C7}"
