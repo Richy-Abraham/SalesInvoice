@@ -4,7 +4,7 @@ using Serilog;
 using Microsoft.EntityFrameworkCore;
 using SalesInvoice.Infrastructure.Context;
 using SalesInvoice.WebAPI.Extensions;
-using Microsoft.Extensions.Options;
+using SalesInvoice.WebAPI.Middleware;
 
 
 var builder = WebApplication.CreateBuilder(args);

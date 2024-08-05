@@ -5,17 +5,20 @@ using SalesInvoice.WebAPI.CustomProblemDetails;
 using System.Net;
 using System.Text.Json;
 
-namespace SalesInvoice.WebAPI.Extensions
+namespace SalesInvoice.WebAPI.Middleware
 {
    public class ErrorHandlerMiddleware
    {
       private readonly RequestDelegate _next;
       private readonly IWebHostEnvironment _env;
 
-      public ErrorHandlerMiddleware(RequestDelegate next, IWebHostEnvironment env)
+      private readonly ILogger<ErrorHandlerMiddleware> _logger;
+
+      public ErrorHandlerMiddleware(RequestDelegate next, IWebHostEnvironment env, ILogger<ErrorHandlerMiddleware> logger)
       {
          _next = next;
          _env = env;
+         _logger = logger;
       }
 
       public async Task Invoke(HttpContext context)
@@ -26,6 +29,7 @@ namespace SalesInvoice.WebAPI.Extensions
          }
          catch (InvalidRequestException ex)
          {
+            _logger.LogError(ex, ex.Message);
             var problemDetails = GetBadRequestProblemDetails(ex);
 
             var response = context.Response;
@@ -35,6 +39,7 @@ namespace SalesInvoice.WebAPI.Extensions
          }
          catch (BusinessRuleValidationException ex)
          {
+            _logger.LogError(ex, ex.Message);
             var problemDetails = GetBusinessRuleValidationProblemDetails(ex);
 
             var response = context.Response;
@@ -44,6 +49,7 @@ namespace SalesInvoice.WebAPI.Extensions
          }
          catch (Exception ex)
          {
+            _logger.LogError(ex, ex.Message);
             var response = context.Response;
             response.ContentType = "application/json";
             response.StatusCode = (int)HttpStatusCode.InternalServerError;
