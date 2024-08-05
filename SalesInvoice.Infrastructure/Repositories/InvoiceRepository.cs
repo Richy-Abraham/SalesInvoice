@@ -24,17 +24,18 @@ namespace SalesInvoice.Infrastructure.Repositories
             await _context.Invoices.AddRangeAsync(invoices, cancellationToken);
             return true;
          }
-         catch { return false; }
+         catch { throw; }
 
       }
-      public Task<bool> UpdateRange(List<Invoice> invoices, CancellationToken cancellationToken)
+      public async Task<bool> UpdateRange(List<Invoice> invoices, CancellationToken cancellationToken)
       {
          try
          {
+            await Task.Yield();
             _context.Invoices.UpdateRange(invoices);
-            return Task.FromResult(true);
+            return true;
          }
-         catch { return Task.FromResult(false); }
+         catch { throw; }
       }
    }
 }

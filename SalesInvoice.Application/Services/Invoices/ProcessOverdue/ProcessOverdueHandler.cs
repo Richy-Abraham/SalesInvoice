@@ -51,9 +51,14 @@ namespace SalesInvoice.Application.Services.Invoices.ProcessOverdue
                invoice.Status = AppConstants.InvoiceStatusVoid; // Mark original as void
             }
          }
-
-         await _invoiceRepository.AddRange(newInvoices, cancellationToken);
-         await _invoiceRepository.UpdateRange(oldInvoices, cancellationToken);
+         if (newInvoices?.Count > 0)
+         {
+            await _invoiceRepository.AddRange(newInvoices, cancellationToken);
+         }
+         if (oldInvoices?.Count > 0)
+         {
+            await _invoiceRepository.UpdateRange(oldInvoices, cancellationToken);
+         }
          await _unitOfWork.Save(cancellationToken);
 
          return true;
