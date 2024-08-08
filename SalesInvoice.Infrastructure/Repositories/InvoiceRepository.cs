@@ -19,25 +19,16 @@ namespace SalesInvoice.Infrastructure.Repositories
 
       public async Task<bool> AddRange(List<Invoice> invoices, CancellationToken cancellationToken)
       {
-         try 
-         {
-            await _context.Invoices.AddRangeAsync(invoices, cancellationToken);
-            return true;
-         }
-         catch { throw; }
-
+         await _context.Invoices.AddRangeAsync(invoices, cancellationToken);
+         return true;
       }
       public async Task<bool> UpdateRange(List<Invoice> invoices, CancellationToken cancellationToken)
       {
-         try
+         await Task.Run(() =>
          {
-            await Task.Run(() =>
-            {
-               _context.Invoices.UpdateRange(invoices);
-            });
-            return true;
-         }
-         catch { throw; }
+            _context.Invoices.UpdateRange(invoices);
+         }, cancellationToken);
+         return true;
       }
    }
 }
